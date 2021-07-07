@@ -15,6 +15,10 @@ p {
   padding: 0;
 }
 
+button {
+  padding: 0;
+}
+
 svg,
 img {
   display: block;
@@ -70,6 +74,26 @@ ul {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__wrapper.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .section {
@@ -167,8 +191,14 @@ ul {
 .logo {
   font-family: "Raleway", sans-serif;
   font-weight: 700;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1.2;
+}
+
+@media screen and (min-width: 1200px) {
+  .logo {
+    font-size: 26px;
+  }
 }
 
 .header__logo {
@@ -283,6 +313,31 @@ ul {
 @media screen and (min-width: 480px) {
   .about__title {
     text-align: left;
+  }
+}
+
+.modalForm__title {
+  font-family: roboto, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.172;
+  letter-spacing: 0.03em;
+  color: var(--primary-color);
+  padding-top: 40px;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+@media screen and (max-width: 479px) {
+  .modalForm__title {
+    max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.43;
+    letter-spacing: 0.03em;
+    text-align: center;
   }
 }
 
@@ -405,13 +460,6 @@ ul {
   margin-right: auto;
 }
 
-.contactList__mailIcon, .contactList__phoneIcon {
-  width: 16px;
-  height: 12px;
-  margin-right: 10px;
-  fill: currentColor;
-}
-
 .header {
   border-bottom: 1px solid var(--header-border-color);
 }
@@ -422,24 +470,75 @@ ul {
   align-items: center;
 }
 
-.header__navigation {
-  display: flex;
-  align-items: center;
+.header__btnClose {
+  position: absolute;
+  top: 0;
+  right: 15px;
 }
 
-.siteNav {
+.header__btnOpen,
+.header__btnClose {
+  background-color: #fff;
+  border: none;
+}
+
+.header__btnOpen:hover, .header__btnOpen:focus,
+.header__btnClose:hover,
+.header__btnClose:focus {
+  fill: var(--activ);
+}
+
+@media screen and (min-width: 756px) {
+  .header__btnOpen,
+  .header__btnClose {
+    display: none;
+  }
+}
+
+.header__btnIcon {
+  width: 40px;
+  height: 40px;
+  color: currentColor;
+}
+
+.navContainer {
   display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 40px;
+}
+
+@media screen and (min-width: 756px) {
+  .navContainer {
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 756px) {
+  .siteNav {
+    display: flex;
+    margin-right: 84px;
+    margin-left: 88px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .siteNav {
+    margin-right: 340px;
+  }
 }
 
 .siteNav__link {
-  display: flex;
-  padding-top: 32px;
-  padding-bottom: 32px;
-  position: relative;
-  color: #212121;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1.1;
+  font-size: 40px;
+  color: #212121;
+  line-height: 1.172;
+  letter-spacing: 0.02em;
+  padding-bottom: 10px;
+  padding-top: 10px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -447,16 +546,65 @@ ul {
   color: var(--activ);
 }
 
-.siteNav__item {
-  margin-right: 50px;
+@media screen and (min-width: 756px) {
+  .siteNav__link {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    font-size: 14px;
+  }
 }
 
-.siteNav__item:first-child {
-  margin-left: 93px;
+@media screen and (max-width: 756px) {
+  .siteNav__item {
+    margin-top: 32px;
+  }
+  .siteNav__item:first-child {
+    margin-top: 0;
+  }
 }
 
-.siteNav__item:last-child {
-  margin: 0;
+@media screen and (min-width: 756px) {
+  .siteNav__item {
+    margin-left: 50px;
+  }
+  .siteNav__item:first-child {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .socialLink {
+    display: flex;
+    margin-left: -10px;
+  }
+}
+
+@media screen and (min-width: 756px) {
+  .socialLink {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .socialLink__item {
+    border-right: 1px solid rgba(33, 33, 33, 0.2);
+    padding-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+.socialLink__item:last-child {
+  border: none;
+  padding-right: 0;
+}
+
+.socialLink__link {
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.222;
+  letter-spacing: 0.02em;
+  color: var(--activ);
 }
 
 .siteNav__link--activ {
@@ -475,32 +623,95 @@ ul {
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.contactList__mailIcon, .contactList__phoneIcon {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .contactList__mailIcon, .contactList__phoneIcon {
+    display: block;
+    width: 16px;
+    height: 12px;
+    margin-right: 10px;
+    fill: currentColor;
+  }
+}
+
 .contactList__link {
-  display: flex;
-  align-items: center;
-  padding-top: 32px;
-  padding-bottom: 32px;
-  color: #757575;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1.1;
+  line-height: 1.171;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #757575;
+  letter-spacing: 0.02em;
+}
+
+@media screen and (max-width: 756px) {
+  .contactList__link {
+    font-size: 34px;
+    color: var(--activ);
+  }
+}
+
+@media screen and (min-width: 756px) {
+  .contactList__link {
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .contactList__link {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
 
 .contactList__link:hover, .contactList__link:focus {
   color: var(--activ);
 }
 
-.contactList {
-  display: flex;
+@media screen and (max-width: 756px) {
+  .contactList__link--size {
+    font-size: 24px;
+    color: #757575;
+  }
 }
 
-.contactList {
-  margin-left: auto;
+@media screen and (max-width: 756px) {
+  .contactList__item {
+    margin-top: 32px;
+  }
 }
 
-.contactList__item:nth-child(2) {
-  margin-left: 50px;
+@media screen and (min-width: 756px) and (max-width: 1200px) {
+  .contactList__item:first-child {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .contactList__item:not(:last-child) {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (min-width: 756px) {
+  .contactList {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .contactList {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
 }
 
 .hero {
@@ -1039,7 +1250,7 @@ ul {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 528px;
+  min-width: 320px;
   min-height: 581px;
   background-color: var(--lite-color);
   border-radius: 4px;
@@ -1061,6 +1272,7 @@ ul {
   border-radius: 50%;
   padding: 5px;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #fff;
 }
 
 .modal__btn:focus, .modal__btn:hover {
@@ -1086,17 +1298,6 @@ ul {
   padding-right: 40px;
 }
 
-.modalForm__title {
-  font-family: roboto, sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.172;
-  letter-spacing: 0.03em;
-  color: var(--primary-color);
-  padding-top: 40px;
-  margin-bottom: 12px;
-}
-
 .modalForm__label {
   position: relative;
   display: flex;
@@ -1104,13 +1305,19 @@ ul {
 }
 
 .modalForm__input {
-  width: 448px;
+  width: 100%;
   height: 40px;
   margin-bottom: 10px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding-left: 42px;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (max-width: 479px) {
+  .modalForm__input {
+    max-width: 240px;
+  }
 }
 
 .modalForm__text {
@@ -1131,12 +1338,18 @@ ul {
 
 .modalForm__commit {
   resize: none;
-  width: 448px;
+  min-height: 96px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   margin-bottom: 20px;
   padding: 12px 16px;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (max-width: 479px) {
+  .modalForm__commit {
+    max-width: 240px;
+  }
 }
 
 .modalForm__commit::placeholder {
@@ -1179,21 +1392,37 @@ ul {
   align-items: center;
   color: var(--accent-color);
   font-family: roboto, sans-serif;
-  font-size: 14px;
-  line-height: 1.714;
-  padding-top: 20px;
-  letter-spacing: 0.03em;
   padding-left: 14px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: 0.03em;
+}
+
+@media screen and (min-width: 1200px) {
+  .modalForm__rules {
+    font-size: 14px;
+    line-height: 1.714;
+    padding-top: 20px;
+  }
 }
 
 .modalForm__agreement {
+  font-family: roboto, sans-serif;
   color: var(--activ);
   text-decoration: underline;
-  font-family: roboto, sans-serif;
-  font-size: 14px;
-  line-height: 1.714;
-  padding-left: 5px;
   letter-spacing: 0.03em;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16667;
+  padding-left: 5px;
+}
+
+@media screen and (min-width: 1200px) {
+  .modalForm__agreement {
+    font-size: 14px;
+    line-height: 1.714;
+  }
 }
 
 .modalForm__btn {

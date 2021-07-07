@@ -15,30 +15,60 @@
 <body>
     <header class="header">
         <div class="header__container container">
-            <nav class="header__navigation">
-                <a href="./" class="logo header__logo">Web<span class="header__logo--color">Studio</span></a>
-                <ul class="siteNav">
-                    <li class="siteNav__item"><a href="./" class="siteNav__link siteNav__link--activ">Студия</a></li>
-                    <li class="siteNav__item"><a href="./portfolio.html" class="siteNav__link">Портфолио</a></li>
-                    <li class="siteNav__item"><a href="" class="siteNav__link">Контакты</a></li>
-                </ul>
-            </nav>
+            <a href="./" class="logo header__logo">Web<span class="header__logo--color">Studio</span></a>
+            <button class="header__btnOpen" type="button" data-menu-open>
+                <svg class="header__btnIcon">
+                    <use href="./images/icons.svg#icon-menu"></use>
+                </svg>
+            </button>
+            <div class="header__wrapper is-hidden" data-menu>
+
+                <button class="header__btnClose" type="button" data-menu-close>
+                    <svg class="header__btnIcon">
+                        <use href="./images/icons.svg#icon-close"></use>
+                    </svg>
+                </button>
+                <div class="navContainer">
+                <nav class="header__navigation">
+                    <ul class="siteNav">
+                        <li class="siteNav__item"><a href="./" class="siteNav__link siteNav__link--activ">Студия</a></li>
+                        <li class="siteNav__item"><a href="./portfolio.html" class="siteNav__link">Портфолио</a></li>
+                        <li class="siteNav__item"><a href="" class="siteNav__link">Контакты</a></li>
+                    </ul>
+                </nav>
     
-            <div class="contactInfo">
-                <ul class="contactList">
-                    <li class="contactList__item"> <a href="mailto:info@devstudio.com" class="contactList__link">
-                            <svg class="contactList__mailIcon">
-                                <use href="./images/icons.svg#icon-envelope"></use>
-                            </svg>
-                            info@devstudio.com</a>
-                    </li>
-                    <li class="contactList__item"><a href="tel:+380961111111" class="contactList__link">
-                            <svg class="contactList__phoneIcon">
-                                <use href="./images/icons.svg#icon-smartphone"></use>
-                            </svg>
-                            +38 096 111 11 11</a>
-                    </li>
-                </ul>
+              
+                    <ul class="contactList">
+                        <li class="contactList__item"><a href="tel:+380961111111" class="contactList__link">
+                                <svg class="contactList__phoneIcon">
+                                    <use href="./images/icons.svg#icon-smartphone"></use>
+                                </svg>
+                                +38 096 111 11 11</a>
+                        </li>
+                        <li class="contactList__item"> <a href="mailto:info@devstudio.com" class="contactList__link contactList__link--size">
+                                <svg class="contactList__mailIcon">
+                                    <use href="./images/icons.svg#icon-envelope"></use>
+                                </svg>
+                                info@devstudio.com</a>
+                        </li>
+                        
+                    </ul>
+                    
+                    <ul class="socialLink">
+                        <li class="socialLink__item">
+                            <a href="" class="socialLink__link">Instagram</a>
+                        </li>
+                        <li class="socialLink__item">
+                            <a href="" class="socialLink__link">Twitter</a>
+                        </li>
+                        <li class="socialLink__item">
+                            <a href="" class="socialLink__link">Facebook</a>
+                        </li>
+                        <li class="socialLink__item">
+                            <a href="" class="socialLink__link">LinkedIn</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -506,14 +536,14 @@
                 
                         <label class="modalForm__label">
                             <span class="modalForm__text"> Комментарий</span>
-                            <textarea name="commit" id="" cols="30" rows="10" class="modalForm__commit" placeholder="Введите текст"></textarea>
+                            <textarea name="commit" id="" class="modalForm__commit" placeholder="Введите текст"></textarea>
                         </label>
             
  
                         <label class="modalForm__rules">
                             <input type="checkbox" class="modalForm__checkbox"><span class="modalForm__rules--checked"></span> Соглашаюсь с рассылкой и принимаю <a href="#"
                                 class="modalForm__agreement"> Условия договора</a> 
-                            </label>
+                        </label>
 
                     <button type="submit" class="modalForm__btn" ><span class="modalForm__send" > Отправить</span></button>
             </form>

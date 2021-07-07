@@ -3,17 +3,6 @@
   padding-right: 40px;
 }
 
-.modalForm__title {
-  font-family: roboto, sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.172;
-  letter-spacing: 0.03em;
-  color: var(--primary-color);
-  padding-top: 40px;
-  margin-bottom: 12px;
-}
-
 .modalForm__label {
   position: relative;
   display: flex;
@@ -21,7 +10,10 @@
 }
 
 .modalForm__input {
-  width: 448px;
+  @media screen and(max-width:479px) {
+    max-width: 240px;
+  }
+  width: 100%;
   height: 40px;
   margin-bottom: 10px;
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -47,8 +39,11 @@
 }
 
 .modalForm__commit {
+  @media screen and(max-width:479px) {
+    max-width: 240px;
+  }
   resize: none;
-  width: 448px;
+  min-height: 96px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   margin-bottom: 20px;
@@ -60,7 +55,6 @@
     letter-spacing: 0.01em;
   }
 }
-
 
 .modalForm__checkbox {
   appearance: none;
@@ -76,7 +70,7 @@
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modalForm__checkbox:checked + .modalForm__rules--checked{
+.modalForm__checkbox:checked + .modalForm__rules--checked {
   border-color: transparent;
   background-color: var(--activ);
   background-image: url(../images/check.svg);
@@ -97,21 +91,31 @@
   align-items: center;
   color: var(--accent-color);
   font-family: roboto, sans-serif;
-  font-size: 14px;
-  line-height: 1.714;
-  padding-top: 20px;
-  letter-spacing: 0.03em;
   padding-left: 14px;
-}
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: 0.03em;
 
+  @media screen and(min-width:1200px) {
+    font-size: 14px;
+    line-height: 1.714;
+    padding-top: 20px;
+  }
+}
 .modalForm__agreement {
+  font-family: roboto, sans-serif;
   color: var(--activ);
   text-decoration: underline;
-  font-family: roboto, sans-serif;
-  font-size: 14px;
-  line-height: 1.714;
-  padding-left: 5px;
   letter-spacing: 0.03em;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16667;
+  padding-left: 5px;
+  @media screen and(min-width:1200px) {
+    font-size: 14px;
+    line-height: 1.714;
+  }
 }
 
 .modalForm__btn {
@@ -126,9 +130,10 @@
   cursor: pointer;
   padding: 10px 55px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  border:  var(--logo);
+  border: var(--logo);
 
-  &:hover,&:focus {
+  &:hover,
+  &:focus {
     background-color: #188ce8;
   }
 }
@@ -142,5 +147,3 @@
 
   color: var(--lite-color);
 }
-
-
