@@ -63,6 +63,7 @@
 }
 
 .siteNav__link {
+  
   font-weight: 500;
   font-size: 40px;
   color: #212121;
@@ -132,6 +133,7 @@
 }
 
 .siteNav__link--activ {
+  position: relative;
   color: var(--activ);
 }
 

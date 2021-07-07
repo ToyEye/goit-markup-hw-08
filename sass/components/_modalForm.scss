@@ -76,6 +76,7 @@
   background-image: url(../images/check.svg);
   background-size: contain;
   background-origin: border-box;
+  background-repeat: no-repeat;
 }
 
 .modalForm__label:focus-within > .modalForm__input,
@@ -88,6 +89,7 @@
 
 .modalForm__rules {
   display: flex;
+  justify-content: center;
   align-items: center;
   color: var(--accent-color);
   font-family: roboto, sans-serif;

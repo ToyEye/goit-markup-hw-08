@@ -219,26 +219,29 @@ ul {
 }
 
 .hero__title {
-  font-family: roboto, sans-serif;
-  color: var(--lite-color);
   font-weight: 900;
   font-size: 26px;
-  line-height: 1.65;
+  line-height: 1.61538;
   letter-spacing: 0.06em;
+  font-family: roboto, sans-serif;
+  color: var(--lite-color);
 }
 
 @media screen and (min-width: 1200px) {
   .hero__title {
+    font-weight: 900;
     font-size: 44px;
+    line-height: 0.95455;
+    letter-spacing: 0.06em;
   }
 }
 
 .invite__title {
-  font-family: roboto, sans-serif;
   font-weight: 700;
   font-size: 14px;
-  line-height: 1.172;
+  line-height: 1.17214;
   letter-spacing: 0.03em;
+  font-family: roboto, sans-serif;
   margin-bottom: 20px;
   color: var(--lite-color);
   text-align: center;
@@ -251,61 +254,82 @@ ul {
 }
 
 .subscribe__title {
-  font-family: roboto, sans-serif;
   font-weight: 700;
   font-size: 14px;
-  line-height: 1.172;
+  line-height: 1.17214;
   letter-spacing: 0.03em;
+  font-family: roboto, sans-serif;
   margin-bottom: 20px;
   color: var(--lite-color);
   text-transform: uppercase;
 }
 
 .projects__title {
-  color: var(--primary-color);
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--primary-color);
 }
 
 .clients__title {
-  color: var(--primary-color);
-  font-family: roboto, sans-serif;
   font-weight: 700;
   font-size: 36px;
-  line-height: 1.171;
+  line-height: 0.91139;
   letter-spacing: 0.03em;
+  color: var(--primary-color);
+  font-family: roboto, sans-serif;
   text-align: center;
   margin-bottom: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .clients__title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.17179px;
+    letter-spacing: 0.03em;
+  }
 }
 
 .team__title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 0.91139;
+  letter-spacing: 0.03em;
   font-family: roboto, sans-serif;
   color: var(--primary-color);
   text-align: center;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.17;
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 1200px) {
+  .team__title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.17179;
+    letter-spacing: 0.03em;
+  }
+}
+
 .work__title {
-  font-family: roboto, sans-serif;
   font-weight: 700;
   font-size: 36px;
-  line-height: 1.17;
+  line-height: 0.91139;
+  letter-spacing: 0.03em;
+  font-family: roboto, sans-serif;
   text-align: center;
   margin-bottom: 50px;
   color: var(--primary-color);
 }
 
 .about__title {
-  font-family: roboto, sans-serif;
   font-weight: 700;
   font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 10px;
+  line-height: 2.34357;
   letter-spacing: 0.03em;
+  font-family: roboto, sans-serif;
+  margin-bottom: 10px;
   color: var(--primary-color);
   text-align: center;
 }
@@ -317,27 +341,26 @@ ul {
 }
 
 .modalForm__title {
+  text-align: center;
   font-family: roboto, sans-serif;
   font-weight: 700;
   font-size: 20px;
-  line-height: 1.172;
+  line-height: 1.6405;
   letter-spacing: 0.03em;
   color: var(--primary-color);
   padding-top: 40px;
   margin-bottom: 12px;
-  letter-spacing: 0.03em;
 }
 
 @media screen and (max-width: 479px) {
   .modalForm__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.875;
+    letter-spacing: 0.03em;
     max-width: 240px;
     margin-left: auto;
     margin-right: auto;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.43;
-    letter-spacing: 0.03em;
-    text-align: center;
   }
 }
 
@@ -608,6 +631,7 @@ ul {
 }
 
 .siteNav__link--activ {
+  position: relative;
   color: var(--activ);
 }
 
@@ -1377,6 +1401,7 @@ ul {
   background-image: url(../images/check.svg);
   background-size: contain;
   background-origin: border-box;
+  background-repeat: no-repeat;
 }
 
 .modalForm__label:focus-within > .modalForm__input,
@@ -1389,6 +1414,7 @@ ul {
 
 .modalForm__rules {
   display: flex;
+  justify-content: center;
   align-items: center;
   color: var(--accent-color);
   font-family: roboto, sans-serif;
