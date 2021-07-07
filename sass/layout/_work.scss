@@ -1,0 +1,22 @@
+.work {
+  background-color: #fff;
+  padding-bottom: 94px;
+}
+
+.work__cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.work__item {
+  margin-right: 30px;
+}
+
+.work__item:last-child {
+  margin-right: 0;
+}
+
+.work__itemPosition {
+  position: relative;
+}
